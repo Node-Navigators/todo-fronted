@@ -1,12 +1,24 @@
 import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  HomePage,
+  SignupPage,
+  LoginPage,
+  ForgotPasswordPage,
+  PageNotFound,
+} from "./pages";
 
 function App() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline text-red-900">
-        TODO FRONTEND
-      </h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
